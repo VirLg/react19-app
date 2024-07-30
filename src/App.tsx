@@ -1,12 +1,10 @@
-import { produstsArr } from "./components/pages/products/data/data";
-import Product from "./components/pages/products/Product";
+import ProductList from "./components/pages/products/ProductList";
 
 function App() {
-  console.log("produstsArr", produstsArr);
   return (
     <div className="App">
       <header className="App-header"></header>
-      <Product products={produstsArr} />
+      <ProductList />
     </div>
   );
 }
