@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MyProduct } from "./models";
+import { getAllProducts } from "../../../appi/apiProduct";
 
 interface ProductProps {
   product: MyProduct;
@@ -9,6 +10,7 @@ const ProductItem = ({ product }: ProductProps) => {
   const [details, setDetails] = useState(false);
   const btnBgClassName = details ? "bg-yellow-400" : "bg-blue-400";
   const btnClasses = ["w-32 h-12  border-4", btnBgClassName];
+
   return (
     <div>
       <img src={product.image} className="w-1/12 " alt={product.title} />
@@ -20,6 +22,8 @@ const ProductItem = ({ product }: ProductProps) => {
         {details ? "Hide details" : "Show Details"}
       </button>
       {details && <div>{product.description}</div>}
+      <button>Delete product</button>
+      <button>Add product</button>
     </div>
   );
 };
