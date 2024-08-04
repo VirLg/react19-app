@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { MyProduct } from "./models";
-import { getAllProducts } from "../../../appi/apiProduct";
 
 interface ProductProps {
   product: MyProduct;

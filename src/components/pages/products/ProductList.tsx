@@ -21,9 +21,10 @@ const ProductList = () => {
 
   return (
     <div>
-      {data.map((product) => (
-        <ProductItem product={product} key={product.id} />
-      ))}
+      {data &&
+        data.map((product) => (
+          <ProductItem product={product} key={product.id} />
+        ))}
     </div>
   );
 };

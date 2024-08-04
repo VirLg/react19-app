@@ -1,17 +1,16 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { MyProduct } from "../components/pages/products/models";
 
-// Встановлення базової URL для axios
-axios.defaults.baseURL = "https://fakestoreapi.com/products";
+axios.defaults.baseURL = "https://fakestoreapi.com";
 
-// Функція для отримання всіх продуктів
 export const getAllProducts = async (): Promise<MyProduct[]> => {
   try {
-    const { data } = await axios.get<MyProduct[]>("?limit=3");
-
-    return data;
+    const response: AxiosResponse<MyProduct[]> = await axios.get<MyProduct[]>(
+      "/products?limit=3"
+    );
+    return response.data;
   } catch (error) {
     console.error("Error fetching products:", error);
-    throw error; // або можете повернути пустий масив чи інше значення за замовчуванням
+    throw new Error("Failed to fetch products");
   }
 };
